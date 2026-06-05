@@ -18,6 +18,8 @@
 
 Reading `nyu-datasets.weather.m_weather_daily_nyc` requires the **nyu-datasets project admin** to grant this service account `roles/bigquery.dataViewer` on that dataset. Request this separately — it cannot be done from this project.
 
+**In the meantime**, a synthetic stand-in dataset has been created at `adktest-490619.synthetic_weather.m_weather_daily_nyc` with the same schema (`date`, `tmax_f`, `tmin_f`, `prcp_mm`, `snow_mm`, `snwd_mm`). Use this table for local development and testing until cross-project access is granted. Update queries from `nyu-datasets.weather.m_weather_daily_nyc` → `adktest-490619.synthetic_weather.m_weather_daily_nyc`.
+
 ### Authentication
 
 This is a multi-user setup. Each team member has their own encrypted credentials file: `.cloud-credentials.<email>.enc`. The agent authenticates automatically at session start via `.claude/hooks/cloud-auth.sh`.

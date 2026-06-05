@@ -9,9 +9,14 @@
 
 | Role | Reason |
 |------|--------|
-| `roles/bigquery.dataEditor` | Read/write data in BigQuery datasets and tables |
-| `roles/bigquery.jobUser` | Run queries and jobs against the project |
-| `roles/storage.objectAdmin` | Read/write GCS buckets and objects |
+| `roles/bigquery.dataEditor` | Write/update tables in the project's BigQuery dataset |
+| `roles/bigquery.jobUser` | Run queries (read Citibike public data, cross-project reads, write results) |
+| `roles/storage.objectAdmin` | Stage Citibike source files and serve website static assets from GCS |
+| `roles/run.developer` | Deploy and manage the Cloud Run web service for visualizations |
+
+### Cross-project access (action required)
+
+Reading `nyu-datasets.weather.m_weather_daily_nyc` requires the **nyu-datasets project admin** to grant this service account `roles/bigquery.dataViewer` on that dataset. Request this separately — it cannot be done from this project.
 
 ### Authentication
 
